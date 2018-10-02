@@ -1,0 +1,11 @@
+---
+# This playbook deploys the whole application stack in this site.
+
+- name: Removing VM from KVM using Virsh
+  hosts: all
+  remote_user: mdigiacomi
+  become_method: sudo
+  become_user: root
+
+  roles:
+    - vm

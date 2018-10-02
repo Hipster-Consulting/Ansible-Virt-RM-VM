@@ -1,0 +1,11 @@
+---
+
+- name: Stopping VM By Hostname
+  command: bash -c "virsh destroy {{New_VM_Name}}"
+  become: true
+- name: Removing VM By Hostname
+  command: bash -c "virsh undefine {{New_VM_Name}}"
+  become: true
+- name:    Removing VM img file
+  command: bash -c "rm -Rf {{New_VM_Location}}/{{New_VM_Name}}.img"
+  become: true
